@@ -1,0 +1,22 @@
+wordpress:
+  image: wordpress
+  environment:
+    WORDPRESS_DB_HOST: "db"
+    WORDPRESS_DB_NAME: "${dbname}"
+    WORDPRESS_DB_USER: "${dbuser}"
+    WORDPRESS_DB_PASSWORD: "${dbpass}"
+    WORDPRESS_ROOT_PASSWORD: "${rootpass}"
+  links:
+    - mysql:db
+wordpress-lb:
+  ports:
+    - ${webport}:80
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+    - wordpress:wordpress
+  stdin_open: true
+mysql:
+  external_links:
+    - ${dbhost}:dbhost
+  image: rancher/dns-service

@@ -1,0 +1,40 @@
+.catalog:
+  name: Gitlab Community
+  version: 8.5.1-0
+  description: |
+    Gitlab CE is a free GitHub alternative
+  minimum_rancher_version: v0.56.0
+  maintainer: "Alexis Ducastel <alexis@ducastel.net>"
+  uuid: gitlab-0
+  questions:
+    - variable: "gitlab_hostname"
+      description: "Gitlab hostname"
+      label: "Hostname:"
+      required: true
+      default: "git.example.com"
+      type: "string"
+    - variable: "sshport"
+      label: "SSH Port:"
+      required: true
+      default: 2222
+      type: int
+    - variable: "webport"
+      label: "Web Port:"
+      required: true
+      default: 8000
+      type: int
+gitlab-server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+
+gitlab-data:
+  scale: 1
+  retain_ip: true
+

@@ -1,0 +1,64 @@
+.catalog:
+  name: "Wordpress"
+  version: "v0.2-educaas"
+  description: "Blog tool, publishing platform and CMS, Need external mysql"
+  uuid: Wordpress-0
+  maintainer: "dongming"
+  minimum_rancher_version: v0.51.0
+  questions:
+  - variable: "dbhost"
+    label: "Mysql Service:"
+    required: true
+    type: service
+  - variable: "dbport"
+    label: "Mysql Port:"
+    required: true
+    default: 3306
+    type: int
+  - variable: "rootpass"
+    label: "Mysql Root Passord:"
+    required: true
+    default: "password"
+    type: string
+  - variable: "dbname"
+    label: "Mysql DB Name:"
+    required: true
+    default: "wordpress"
+    type: string
+  - variable: "dbuser"
+    label: "Mysql DB User:"
+    required: true
+    default: "wordpress"
+    type: string
+  - variable: "dbpass"
+    label: "Mysql DB Password:"
+    required: true
+    default: "password"
+    type: string
+  - variable: "webport"
+    label: "Web Port:"
+    required: true
+    default: 8001
+    type: int
+  - variable: "scale"
+    label: "Web Scale"
+    required: true
+    default: 1
+    type: int
+
+wordpress:
+  scale: ${scale}
+  health_check:
+    port: 80
+    interval: 5000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 5000
+wordpress-lb:
+  scale: 1
+  health_check:
+    port: ${webport}
+    interval: 5000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 5000
