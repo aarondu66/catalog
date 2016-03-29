@@ -1,0 +1,5 @@
+name: Auto-Scale
+description: |
+  Atuo monitor 3rd party service, and auto scale based on defined policy
+version: v0.1
+category: Service

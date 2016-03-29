@@ -1,0 +1,38 @@
+.catalog:
+  name: "Auto Scale"
+  version: "v0.1"
+  description: "Auto monitor 3rd party service, and auto scale based on defined policy"
+  maintainer: "dongming"
+  minimum_rancher_version: v0.51.0
+  questions:
+  - variable: "apiname"
+    label: "API Access Key:"
+    required: true
+    type: string
+  - variable: "apikey"
+    label: "API Access Password:"
+    required: true
+    type: string
+  - variable: "endpoint"
+    label: "Endpoint:"
+    required: true
+    type: string
+  - variable: "targetservice"
+    label: "Target Service:"
+    required: true
+    type: service
+  - variable: "scalemin"
+    label: "Minumal Scale Number:"
+    required: true
+    default: 1
+    type: int 
+  - variable: "scalemax"
+    label: "Maxmual Scale Number:"
+    required: true
+    default: 10
+    type: int 
+  - variable: "interval"
+    label: "Monitor Interval (s):"
+    required: true
+    default: 5
+    type: int

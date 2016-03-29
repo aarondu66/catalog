@@ -1,0 +1,10 @@
+wordpress:
+  image: rhel-autoscale
+  environment:
+    RANCHER_USER: "${apiname}"
+    RANCHER_PASSWORD: "${apikey}"
+    RANCHER_ENPOINT: "${endpoint}"
+    TARGET_SERVICE: "${targetservice}"
+    SCALE_MIN: "${scalemin}"
+    SCALE_MAX: "${scalemax}"
+    SCALE_INTERVAL: "${interval}"
