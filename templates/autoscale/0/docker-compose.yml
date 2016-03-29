@@ -1,4 +1,4 @@
-wordpress:
+autoscale:
   image: rhel-autoscale
   environment:
     RANCHER_USER: "${apiname}"
