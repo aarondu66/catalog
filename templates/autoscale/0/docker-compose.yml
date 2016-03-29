@@ -8,3 +8,4 @@ wordpress:
     SCALE_MIN: "${scalemin}"
     SCALE_MAX: "${scalemax}"
     SCALE_INTERVAL: "${interval}"
+  command: python /monitor.py
