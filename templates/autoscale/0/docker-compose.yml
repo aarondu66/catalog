@@ -3,7 +3,7 @@ autoscale:
   environment:
     RANCHER_USER: "${apiname}"
     RANCHER_PASSWORD: "${apikey}"
-    RANCHER_ENPOINT: "${endpoint}"
+    RANCHER_ENDPOINT: "${endpoint}"
     TARGET_SERVICE: "${targetservice}"
     SCALE_MIN: "${scalemin}"
     SCALE_MAX: "${scalemax}"
