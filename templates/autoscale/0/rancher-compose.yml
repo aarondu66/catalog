@@ -1,5 +1,5 @@
 .catalog:
-  name: "Auto Scale"
+  name: "Auto Scale Monitor"
   version: "v0.1"
   description: "Auto monitor 3rd party service, and auto scale based on defined policy"
   maintainer: "dongming"
