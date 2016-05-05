@@ -1,0 +1,13 @@
+mysql:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: "${rootpass}"
+    MYSQL_DATABASE: "${dbname}"
+    MYSQL_USER: "${dbuser}"
+    MYSQL_PASSWORD: "${dbpass}"
+    MYSQL_ALLOW_EMPTY_PASSWORD: "${allownopass}"
+  expose:
+    - ${port}:3306
+  volumes:
+    - ${volumename}:/var/lib/mysql
+  volume_driver: ${volumedriver}

@@ -1,0 +1,53 @@
+.catalog:
+  name: "Mysql Database"
+  version: "v1"
+  maintainer: "dongming"
+  minimum_rancher_version: v0.51.0
+  questions:
+  - variable: "rootpass"
+    label: "Mysql Root Passord:"
+    required: true
+    default: "password"
+    type: string
+  - variable: "dbname"
+    label: "Mysql DB Name:"
+    required: true
+    type: string
+  - variable: "dbuser"
+    label: "Mysql DB User:"
+    default: "root"
+    type: string
+  - variable: "dbpass"
+    label: "Mysql DB Password:"
+    default: "password"
+    type: string
+  - variable: "allownopass"
+    label: "Allow Empty Passord:"
+    default: "yes"
+    type: enum
+    options:
+      - yes
+      - no
+  - variable: "port"
+    label: "Mysql Service Port:"
+    required: true
+    default: 3306
+    type: int
+  - variable: "volumename"
+    label: "Storage Pool Volume Name:"
+    required: true
+    type: string
+  - variable: "volumedriver"
+    label: "Storage Pool Volume Driver:"
+    required: true
+    type: string
+
+mysql:
+  scale: 1
+  health_check:
+    port: 3306
+    interval: 5000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 5000
+
