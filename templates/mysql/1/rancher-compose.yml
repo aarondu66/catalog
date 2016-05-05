@@ -1,6 +1,6 @@
 .catalog:
   name: "Mysql Database"
-  version: "v1"
+  version: "v2"
   maintainer: "dongming"
   minimum_rancher_version: v0.51.0
   questions:
