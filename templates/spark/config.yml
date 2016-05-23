@@ -1,0 +1,8 @@
+name: Apache Spark
+description: |
+  (Experimental) Spark cluster
+version: 1.0.0
+category: Big Data
+maintainer: "Rancher"
+minimum_rancher_version: v1.0
+license:

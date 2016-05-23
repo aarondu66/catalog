@@ -1,0 +1,36 @@
+.catalog:
+  name: "Storm"
+  version: "v1.0"
+  description: "Storm"
+  uuid: Storm-0
+  maintainer: "xiangbo"
+  minimum_rancher_version: v0.51.0
+  questions:
+  - variable: "zookeeper"
+    label: "ZooKeeper:"
+    required: true
+    type: service
+  - variable: "nimbusport"
+    label: "nimbus ui port:"
+    required: true
+    default: "8081"
+    type: int
+  - variable: "svscale"
+    label: "supervisor scale:"
+    required: true
+    default: "3"
+    type: int
+  - variable: "startport"
+    label: "supervisor start port:"
+    required: true
+    default: 6000
+    type: int
+  - variable: "number"
+    label: "port scale:"
+    required: true
+    default: "3"
+    type: int
+Nimbus:
+  scale: 1
+Supervisor:
+  scale: ${svscale}

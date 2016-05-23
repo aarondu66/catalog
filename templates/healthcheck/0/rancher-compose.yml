@@ -1,0 +1,28 @@
+.catalog:
+  name: "Health_check_demo"
+  version: 1.0
+  description: "Container health_check"
+  minimum_rancher_version: v0.51.0
+  uuid: hc-0
+  questions:
+Nginx-HC-port80:
+  scale: 1
+  health_check:
+    port: 80
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+Nginx-HC-http-respond:
+  scale: 1
+  health_check:
+    port: 80
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    request_line: GET "/index.html" "HTTP/1.0"
+    healthy_threshold: 2

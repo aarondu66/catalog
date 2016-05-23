@@ -1,0 +1,47 @@
+.catalog:
+  name: spark
+  version: 1.0.0
+  description: |
+    (Experimental) Spark cluster
+  questions:
+    - variable: "slave_scale"
+      description: "spark worker number"
+      label: "spark worker number"
+      required: true
+      default: 3
+      type: "int"
+    - variable: "host_label" 
+      description: "Please input the host_label for spark master" 
+      label: "Host_label"
+      required: true
+      default: "hostname=host1"
+      type: "string"
+    - variable: "ui_port"
+      description: "spark ui port"
+      label: "spark ui port"
+      required: true
+      default: 8080
+      type: "int"
+    - variable: "restful_port"
+      description: "spark restful port"
+      label: "spark restful  port"
+      required: true
+      default: 6066
+      type: "int"
+    - variable: "spark_port"
+      description: "spark  port"
+      label: "spark   port"
+      required: true
+      default: 7077
+      type: "int"
+    - variable: "sshd_port"
+      description: "spark master sshd port"
+      label: "spark master sshd  port"
+      required: true
+      default: 8022
+      type: "int"
+
+slaves:
+  scale: ${slave_scale}
+master:
+  scale: 1

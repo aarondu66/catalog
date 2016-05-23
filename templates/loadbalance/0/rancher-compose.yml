@@ -1,0 +1,34 @@
+.catalog:
+  name: "Loadbalance-check"
+  version: "1.0"
+  description: "LB Check test"
+  minimum_rancher_version: v0.51.0
+  questions:
+nginx1-1:
+  scale: 1
+LB-RoundRobin:
+  scale: 1
+  load_balancer_config:
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
+nginx1-2:
+  scale: 1
+LB-Cookie-insert:
+  scale: 1
+  load_balancer_config:
+    lb_cookie_stickiness_policy:
+      cookie: lb
+      mode: insert
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
+

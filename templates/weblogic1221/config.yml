@@ -1,0 +1,5 @@
+name: WebLogic 12
+description: |
+  Oracle WebLogic 12 with your application deployed.
+version: 12.2.1
+category: Middleware

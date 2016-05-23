@@ -1,0 +1,7 @@
+name: Apache Zookeeper
+description: |
+   Zookeeper cluster
+version: 3.4.6-rancher1
+category: Clustering
+minimum_rancher_version: v0.56.0
+license: 

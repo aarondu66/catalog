@@ -1,0 +1,26 @@
+Nimbus:
+  ports:
+   - ${nimbusport}:8080/tcp
+  environment:
+    startport: ${startport}
+    number: ${number}
+  external_links:
+    - ${zookeeper}:zk
+  tty: true
+  image: 10.0.0.5:5002/storm:1.2
+  stdin_open: true
+  labels:
+     io.rancher.container.pull_image: always
+  command: ["/storm/start/nimbus.sh"]
+Supervisor:
+  environment:
+    startport: ${startport}
+    number: ${number}
+  external_links:
+    - ${zookeeper}:zk
+  tty: true
+  image: 10.0.0.5:5002/storm:1.2
+  stdin_open: true
+  labels:
+    io.rancher.container.pull_image: always
+  command: ["/storm/start/nimbus.sh"]
