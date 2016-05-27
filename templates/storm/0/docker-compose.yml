@@ -10,7 +10,6 @@ Nimbus:
   image: storm:1.2
   stdin_open: true
   labels:
-     io.rancher.container.pull_image: always
   command: ["/storm/start/nimbus.sh"]
 Supervisor:
   environment:
