@@ -1,10 +1,9 @@
 slaves:
   log_driver: ''
   labels:
-    io.rancher.container.pull_image: always
   tty: true
   log_opt: {}
-  image: 10.0.0.5:5002/sparkimage
+  image: sparkimage
   privileged: true
   stdin_open: true
 master:
@@ -15,11 +14,10 @@ master:
   - ${restful_port}:6066/tcp
   log_driver: ''
   labels:
-    io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: ${host_label}
   tty: true
   log_opt: {}
-  image: 10.0.0.5:5002/sparkimage
+  image: sparkimage
   links:
   - 'slaves:'
   privileged: true
