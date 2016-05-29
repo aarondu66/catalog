@@ -2,7 +2,6 @@ jenkins:
   ports:
   - 9001:8080/tcp
   labels:
-    io.rancher.container.pull_image: always
   tty: true
   image: 10.0.0.5:5002/jenkins:1.1
   volumes:
@@ -18,8 +17,6 @@ gitlab:
   - 9003:80/tcp
   - 9002:22/tcp
   labels:
-    io.rancher.container.pull_image: always
-    io.rancher.scheduler.affinity:host_label: gitlab=true
   tty: true
   hostname: gitlab.youruncloud.com
   image: 10.0.0.5:5002/gitlab/gitlab-ce
