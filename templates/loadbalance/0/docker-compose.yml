@@ -1,9 +1,8 @@
 nginx1-1:
   ports:
-  - 8198:80/tcp
+  - 18198:80/tcp
   log_driver: ''
   labels:
-    io.rancher.container.pull_image: always
   tty: true
   log_opt: {}
   image: 10.0.0.5:5002/nginx
@@ -19,10 +18,9 @@ LB-RoundRobin:
   stdin_open: true
 nginx1-2:
   ports:
-  - 8082:80/tcp
+  - 18082:80/tcp
   log_driver: ''
   labels:
-    io.rancher.container.pull_image: always
   tty: true
   log_opt: {}
   image: 10.0.0.5:5002/nginx:1.1
