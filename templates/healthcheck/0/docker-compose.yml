@@ -2,7 +2,6 @@ Nginx-HC-port80:
   ports:
    - 10001:80/tcp
   labels:
-    io.rancher.container.pull_image: always
   tty: true
   image: 10.0.0.5:5002/nginx:error
   stdin_open: true
@@ -10,7 +9,6 @@ Nginx-HC-http-respond:
   ports:
    - 10002:80/tcp
   labels:
-    io.rancher.container.pull_image: always
   tty: true
   image: 10.0.0.5:5002/nginx
   stdin_open: true
