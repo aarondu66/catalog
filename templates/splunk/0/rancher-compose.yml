@@ -1,0 +1,34 @@
+.catalog:
+  name: splunk 
+  version: 1.0.0
+  description: |
+    Big Data Logging
+  uuid: splunk-0
+  questions:
+    - variable: "splunkhost1"
+      description: "指定splunk前端服务部署到哪一台主机上"
+      label: "splunk前端主机标签"
+      required: true
+      default: "hostname=host1"
+      type: "string"
+    - variable: "splunkhost2"
+      description: "指定splunk数据卷部署到哪一台主机上"
+      label: "splunk数据卷主机标签"
+      required: true
+      default: "hostname=host2"
+      type: "string"
+    - variable: "splunkhost1_ip"
+      description: "指定splunk前端主机IP地址"
+      label: "splunk前端主机IP"
+      required: true
+      default: "127.0.0.1"
+      type: "string"
+
+splunk:
+  scale: 1
+datavol:
+  scale: 1
+nginx-splunk-tester02:
+  scale: 1
+splunkforwarder03:
+  scale: 1

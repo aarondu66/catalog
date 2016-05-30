@@ -1,0 +1,6 @@
+name: gitlab
+description: |
+  可持续构建系统。
+version: 1.0.0
+category: 持续集成
+maintainer: "有容云"

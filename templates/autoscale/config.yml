@@ -1,5 +1,8 @@
-name: Auto-Scale-Monitor
+name: AutoScale
 description: |
-  Atuo monitor 3rd party service, and auto scale based on defined policy
-version: v0.1
-category: Service
+  特定条件下支持自动扩容服务
+version: 1.0.0
+category: 扩容
+maintainer: "有容云"
+license:
+

@@ -1,0 +1,43 @@
+elasticsearch:
+  image: index.youruncloud.com/catalog/elasticsearch:v1.0.0
+  restart: always
+  ports:
+   - "9200:9200"
+   - "9300:9300"
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${hostlabel_key}=${hostlabel_value}
+    tty: true
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+  stdin_open: true
+logstash:
+  image: index.youruncloud.com/catalog/logstash:v1.0.0
+  restart: always
+  ports:
+   - "5000:5000/tcp"
+   - "5000:5000/udp"
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${hostlabel_key}=${hostlabel_value}
+    tty: true
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+   - ${logstash_conf_dir}/logstash.conf:/etc/logstash.conf
+  environment:
+    LOGSPOUT: 'ignore'
+  command: logstash -f /etc/logstash.conf
+  links:
+   - elasticsearch:db
+  stdin_open: true
+kibana:
+  image: index.youruncloud.com/catalog/kibana:v1.0.0
+  restart: always
+  ports:
+   - "5601:5601"
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${hostlabel_key}=${hostlabel_value}
+    tty: true
+  links:
+   - elasticsearch:elasticsearch
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+  stdin_open: true

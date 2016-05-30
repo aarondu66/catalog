@@ -1,0 +1,23 @@
+.catalog:
+  name: elk
+  version: 1.0.0
+  description: |
+    Collect, search and visualise log data with ELK (Elasticsearch 2.3.2, Logstash 2.3.2, Kibana 4.5.0).
+  uuid: elk-0
+  questions:
+    - variable: "hostlabel_key"
+      description: "部署ELK的主机标签的Key值"
+      label: "主机标签Key"
+      required: true
+      type: "string"
+    - variable: "hostlabel_value"
+      description: "部署ELK的主机标签的Value值"
+      label: "主机标签Value"
+      required: true
+      type: "string"
+    - variable: "logstash_conf_dir"
+      description: "放置logstash配置文件的绝对路径"
+      label: "配置路径"
+      required: true
+      default: "/logstash/conf/"
+      type: "string"

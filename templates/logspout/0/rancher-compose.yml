@@ -1,0 +1,13 @@
+.catalog:
+  name: Logspout
+  version: 1.0.0
+  description: |
+    Logspout is a log router for Docker containers.
+  questions:
+    - variable: "route_uri"
+      label: "日志路由地址"
+      type: "string"
+      required: true
+      default: "syslog://127.0.0.1:5000"
+      description: |
+        容器日志路由的目的地址，默认推送到logstash。

@@ -1,0 +1,25 @@
+.catalog:
+  name: Zabbix agent
+  version: 1.0.0
+  description: |
+    Dockerized Zabbix agent with Docker monitoring out of the box for CoreOS, Debian, RHEL, Ubuntu, ....
+  uuid: agent-0
+  questions:
+    - variable: "agent_hostname"
+      description: "Zabbix agent容器主机名"
+      label: "主机名"
+      required: true
+      default: "Zabbix agent"
+      type: "string"
+    - variable: "zabbix_serverip"
+      description: "Zabbix Server主机的IP或DNS(trapping方式)"
+      label: "Zabbix服务器IP"
+      required: true
+      default: "127.0.0.1"
+      type: "string"
+    - variable: "zabbix_serverip_active"
+      description: "Zabbix Server主机的IP(agent方式)"
+      label: "Zabbix服务器ActiveIP"
+      required: true
+      default: "127.0.0.1"
+      type: "string"

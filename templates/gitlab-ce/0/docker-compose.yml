@@ -1,0 +1,23 @@
+gitlab:
+  ports:
+  - 443:443
+  - 80:80
+  - 2289:22
+  hostname: ${host_ip}
+  image: index.youruncloud.com/catalog/gitlab-ce:v1.0.0
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${host_label}
+  environment:
+  - GITLAB_OMNIBUS_CONFIG="external_url='http://${host_ip}';gitlab_rails['gitlab_shell_ssh_port'] = 2289;"
+  volumes:
+  - /srv/gitlab/config:/etc/gitlab
+  - /srv/gitlab/logs:/var/log/gitlab
+  - /srv/gitlab/reconfigure:/var/log/gitlab/reconfigure
+  - /srv/gitlab/data:/var/opt/gitlab
+  - /etc/localtime:/etc/localtime:ro
+gitlab-runner:
+  image: index.youruncloud.com/catalog/gitlab-runner-maven:v1.0.0
+  volumes:
+  - /var/run/docker.sock:/var/run/docker.sock
+  links:
+  - gitlab:${host_ip}

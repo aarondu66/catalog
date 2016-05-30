@@ -1,0 +1,12 @@
+logspout:
+  restart: always
+  environment:
+    LOGSPOUT: 'ignore'
+  volumes:
+  - '/var/run/docker.sock:/var/run/docker.sock'
+  command: ${route_uri}
+  labels:
+    io.rancher.scheduler.global: 'true'
+  tty: true
+  image: index.youruncloud.com/catalog/logspout:v1.0.0
+  stdin_open: true

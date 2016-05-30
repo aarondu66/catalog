@@ -1,0 +1,6 @@
+name: Zabbix server
+description: |
+  支持通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服务器/网络状态的监视，数据收集等功能
+version: 1.0.0
+category: 监控
+maintainer: "有容云"

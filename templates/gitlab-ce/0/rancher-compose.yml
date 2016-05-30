@@ -1,0 +1,21 @@
+.catalog:
+  name: gitlab
+  version: 1.0.0
+  description: |
+    可持续集成系统
+  questions:
+    - variable: "host_label"
+      description: "指定gitlab部署到哪台主机上"
+      label: "gitlab主机标签"
+      required: true
+      default: "hostname=host1"
+      type: "string"
+    - variable: "host_ip"
+      description: "部署gitlab的主机IP地址"
+      label: "IP地址"
+      required: true
+      type: "string"
+gitlab:
+  scale: 1
+gitlab-runner:
+  scale: 1

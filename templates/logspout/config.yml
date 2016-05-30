@@ -1,0 +1,6 @@
+name: Logspout
+description: |
+  Docker容器的日志路由器
+version: 1.0.0
+category: 日志审计
+maintainer: "有容云"

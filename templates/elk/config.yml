@@ -1,0 +1,6 @@
+name: ELK
+description: |
+  基于Elasticsearch,Logstash,Kibana的一个集中式的日志收集装置
+version: 1.0.0
+category: 日志审计
+maintainer: "有容云"

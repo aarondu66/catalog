@@ -1,0 +1,48 @@
+splunk:
+  ports:
+  - 8000:8000/tcp
+  - 9997:9997/tcp
+  log_driver: ''
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${splunkhost1}
+  tty: true
+  log_opt: {}
+  image: index.youruncloud.com/catalog/docker-stats-splunk:v1.0.0
+  stdin_open: true
+datavol:
+  log_driver: ''
+  labels:
+    io.rancher.container.start_once: 'true'
+    io.rancher.scheduler.affinity:host_label: ${splunkhost2}
+  tty: true
+  log_opt: {}
+  image: index.youruncloud.com/catalog/nginx:v1.0.0
+  volumes:
+  - /var/log/myapplog
+  stdin_open: true
+nginx-splunk-tester02:
+  ports:
+  - 11081:80/tcp
+  log_driver: ''
+  labels:
+    io.rancher.sidekicks: datavol,splunkforwarder03
+    io.rancher.scheduler.affinity:host_label: ${splunkhost2}
+  tty: true
+  log_opt: {}
+  image: index.youruncloud.com/catalog/nginx:v1.0.0
+  volumes_from:
+  - datavol
+  stdin_open: true
+splunkforwarder03:
+  environment:
+    SPLUNK_FORWARD_SERVER: ${splunkhost1_ip}:9997
+  log_driver: ''
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${splunkhost2}
+  tty: true
+  log_opt: {}
+  hostname: splunkforwarder03
+  image: index.youruncloud.com/catalog/splunk:v1.0.0
+  volumes_from:
+  - datavol
+  stdin_open: true

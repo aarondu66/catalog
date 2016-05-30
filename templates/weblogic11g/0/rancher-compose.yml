@@ -1,0 +1,52 @@
+.catalog:
+  name: "WebLogic11g"
+  version: "1.0.0"
+  description: "Oracle WebLogic 11g with your application deployed"
+  questions:
+    - variable: application_name
+      description: "指定war包部署完后url访问路径时的上下文"
+      label: "应用名称"
+      type: "string"
+      required: true
+      default: "sampleapp"
+    - variable: artifact_url
+      label: "war包下载路径"
+      type: "string"
+      required: true
+      default: "http://tomcat.apache.org/tomcat-5.5-doc/appdev/sample/sample.war"
+    - variable: datasource_name
+      description: "给数据源取个名字,只支持Oracle数据库！"
+      label: "数据源名称"
+      type: "string"
+      required: false
+    - variable: database_host
+      description: "数据库服务器的访问IP"
+      label: "数据库主机IP"
+      type: "string"
+      required: false
+    - variable: database_username
+      description: "登陆数据库的用户名"
+      label: "数据库用户名"
+      type: "string"
+      required: false
+    - variable: database_password
+      description: "登陆数据库的密码"
+      label: "数据库密码"
+      type: "string"
+      required: false
+wlslb:
+  scale: 1
+  load_balancer_config:
+    lb_cookie_stickiness_policy:
+      cookie: wlscookie
+      domain: ''
+      mode: insert
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
+wlssvc:
+  scale: 2

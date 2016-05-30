@@ -1,0 +1,7 @@
+.catalog:
+  name: Zabbix server 
+  version: 1.0.0
+  description: |
+    Runs Zabbix Server and Zabbix Web UI on a Container.
+  uuid: zabbixserver-0
+  questions:

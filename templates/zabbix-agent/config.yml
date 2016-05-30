@@ -1,0 +1,6 @@
+name: Zabbix agent
+description: |
+  Docker化的Zabbix agent，用于CoreOS, Debian, CentOS, RHEL, Ubuntu等系统的Docker容器监控。
+version: 1.0.0
+category: 监控
+maintainer: "有容云"

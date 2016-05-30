@@ -1,0 +1,6 @@
+name: splunk
+description: |
+  Splunk是一个托管的日志文件管理工具
+version: 1.0.0
+category: 日志审计
+maintainer: "有容云"
