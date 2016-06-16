@@ -10,12 +10,6 @@
       required: true
       default: 3
       type: "int"
-    - variable: "host_label" 
-      description: "Please input the host_label for spark master" 
-      label: "Host_label"
-      required: true
-      default: "hostname=host1"
-      type: "string"
     - variable: "ui_port"
       description: "spark ui port"
       label: "spark ui port"
