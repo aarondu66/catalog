@@ -14,7 +14,6 @@ master:
   - ${restful_port}:6066/tcp
   log_driver: ''
   labels:
-    io.rancher.scheduler.affinity:host_label: ${host_label}
   tty: true
   log_opt: {}
   image: sparkimage
